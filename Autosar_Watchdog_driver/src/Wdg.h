@@ -8,6 +8,7 @@
 #ifndef WDG_H_
 #define WDG_H_
 
+#include "Bits.h"
 #include "Wdglf_Types.h"
 #include "Wdg_Cfg.h"
 
