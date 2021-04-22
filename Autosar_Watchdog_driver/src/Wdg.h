@@ -18,12 +18,11 @@
 #define     WDGIF_FAST_MODE     3
 */
 
-typedef enum{
-WDGIF_OFF_MODE,
-WDGIF_SLOW_MODE,
-WDGIF_FAST_MODE
-}WdgIf_ModeType;
 
+#define WDG_COUNTER_CLOCK_DIV_1      (uint8_t)( 0x00 )
+#define WDG_COUNTER_CLOCK_DIV_2      (uint8_t)( BIT7 )
+#define WDG_COUNTER_CLOCK_DIV_4      (uint8_t)( BIT8 )
+#define WDG_COUNTER_CLOCK_DIV_8      (uint8_t)( BIT7 | BIT8)
 
 /**************************************************************************************************************
  * Public Function: Wdg_SetTriggerCondition
@@ -40,5 +39,35 @@ WDGIF_FAST_MODE
 void Wdg_SetTriggerCondition(uint16 timeout);
 
 
+
+/***************************
+ * Function Description : Initializes the module.
+ *
+ * Parameters : pointer to Wdg_ConfigType.
+ *
+ * Return : None.
+ *
+ * Covers :  [SWS_Wdg_00001], [SWS_Wdg_00100], [SWS_Wdg_00101], [SWS_Wdg_00173],
+ * 			 [SWS_Wdg_00090].
+ *
+ *Not Covered : [SWS_Wdg_00025], [SWS_Wdg_00019].
+ ***************************/
+void Wdg_Init( const Wdg_ConfigType* ConfigPtr );
+
+
+
+
+/***************************
+ * Function Description : Returns the version information of the module.
+ *
+ * Parameters : Std_VersionInfoType.
+ *
+ * Return : None.
+ *
+ * Covers :
+ *
+ *
+ ***************************/
+void Wdg_GetVersionInfo( Std_VersionInfoType* versioninfo );
 
 #endif /* WDG_H_ */
