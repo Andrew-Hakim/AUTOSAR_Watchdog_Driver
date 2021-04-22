@@ -30,7 +30,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "diag/Trace.h"
-
+#include "Wdg.h"
 // ----------------------------------------------------------------------------
 //
 // Standalone STM32F4 empty sample (trace via DEBUG).
@@ -50,12 +50,14 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
-
+extern  Wdg_ConfigType User_WdgCongfiguration;
 int
 main(int argc, char* argv[])
 {
   // At this stage the system clock should have already been configured
   // at high speed.
+
+	Wdg_Init(&User_WdgCongfiguration);
 
   // Infinite loop
   while (1)

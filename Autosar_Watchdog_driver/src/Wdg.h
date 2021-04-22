@@ -26,7 +26,7 @@
 
 
 /***************************
- * Function Description :  Switches the watchdog into the mode Mode.
+ * Function Description :  Switches the watch dog into the mode Mode.
  *
  * Parameters : WdgIf_ModeType Mode
  *
@@ -63,7 +63,7 @@ void Wdg_SetTriggerCondition(uint16 timeout);
  *
  *Not Covered : [SWS_Wdg_00025], [SWS_Wdg_00019].
  ***************************/
-void Wdg_Init( const Wdg_ConfigType* ConfigPtr );
+void Wdg_Init( const Wdg_ConfigType* ConfigPtr ); /* TODO Lcg.h */
 
 
 
