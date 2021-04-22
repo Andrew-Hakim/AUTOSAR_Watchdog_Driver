@@ -1,13 +1,27 @@
-/*
- * Wdg.c
- *
- *  Created on: Apr 22, 2021
- *      Author: Andrew
- */
 
-#include "Wdg.h"
-#include "Wdg_Cfg.h"
-#include "SchM_Wdg.h"
+/*WDT.h*/
+/*
+#define     WDGIF_OFF_MODE      1
+#define     WDGIF_SLOW_MODE     2
+#define     WDGIF_FAST_MODE     3
+*/
+
+typedef enum{
+WDGIF_OFF_MODE,
+WDGIF_SLOW_MODE,
+WDGIF_FAST_MODE
+}(WdgIf_ModeType;
+
+
+/*WDT_cfg.h*/
+#define     WD_MODE_IS_AVAILABE         1
+#define     WD_MODE_IS_NOT_AVAILABE     2
+
+#define     WD_OFF_MODE       WD_MODE_IS_AVAILABE
+#define     WD_SLOW_MODE      WD_MODE_IS_AVAILABE
+#define     WD_FAST_MODE      WD_MODE_IS_AVAILABE
+
+/*WDT.c*/
 
 
 
@@ -42,3 +56,9 @@ Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode){
     }
 return 0;
 }
+
+
+
+
+
+
