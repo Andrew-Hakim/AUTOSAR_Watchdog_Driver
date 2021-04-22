@@ -10,6 +10,24 @@
 
 #include "Std_Types.h"
 
-/* i think this structure should be here --> Wdg_ConfigType*/
+/*
+	Used for pointers to structures holding configuration data provided to the Wdg
+	module initialization routine for configuration of the module and watchdog
+	hardware
+ */
+typedef struct
+{
+	uint8_t WdgCounter;
+	uint8_t WdgWindowValue;
+	uint8_t WdgTimerBase;
+
+}Wdg_ConfigType;
+
+
+typedef enum{
+	WDGIF_OFF_MODE,
+	WDGIF_SLOW_MODE,
+	WDGIF_FAST_MODE
+}WdgIf_ModeType;
 
 #endif /* WDGLF_TYPES_H_ */
