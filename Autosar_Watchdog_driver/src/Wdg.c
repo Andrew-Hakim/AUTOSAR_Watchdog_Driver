@@ -11,7 +11,8 @@
 
 
 
-Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode){
+Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode)
+{
 
 #if     WD_OFF_MODE  == WD_MODE_IS_AVAILABE
 

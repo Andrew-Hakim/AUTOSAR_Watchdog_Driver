@@ -24,6 +24,17 @@
 #define WDG_COUNTER_CLOCK_DIV_4      (uint8_t)( BIT8 )
 #define WDG_COUNTER_CLOCK_DIV_8      (uint8_t)( BIT7 | BIT8)
 
+
+/***************************
+ * Function Description :  Switches the watchdog into the mode Mode.
+ *
+ * Parameters : WdgIf_ModeType Mode
+ *
+ * Return : Std_ReturnType.
+ *
+ ***************************/
+Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode);
+
 /**************************************************************************************************************
  * Public Function: Wdg_SetTriggerCondition
  * Description: This function is used to set the timeout value for the watch dog timer.
