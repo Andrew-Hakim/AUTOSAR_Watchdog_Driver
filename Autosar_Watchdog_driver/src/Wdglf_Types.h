@@ -25,22 +25,22 @@
  *
  * */
 
-
-
-typedef struct
-{
-	uint8_t WdgCounter;
-	uint8_t WdgWindowValue;
-	uint8_t WdgTimerBase;
-	WdgIf_ModeType WdgMode;
-
-}Wdg_ConfigType;
-
-
 typedef enum{
 	WDGIF_OFF_MODE,
 	WDGIF_SLOW_MODE,
 	WDGIF_FAST_MODE
 }WdgIf_ModeType;
+
+
+typedef struct
+{
+	uint8 WdgCounter;
+	uint8 WdgWindowValue;
+	uint8 WdgTimerBase;
+	WdgIf_ModeType WdgMode;
+
+}Wdg_ConfigType;
+
+
 
 #endif /* WDGLF_TYPES_H_ */

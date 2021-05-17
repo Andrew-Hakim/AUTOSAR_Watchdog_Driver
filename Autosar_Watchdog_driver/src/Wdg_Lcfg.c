@@ -16,8 +16,6 @@ Wdg_ConfigType User_WdgCongfiguration =
  {
 			.WdgCounter = 200,
 			.WdgWindowValue =100,
-			.WdgTimerBase = WDG_COUNTER_CLOCK_DIV_2,
-			.WdgMode = WDGIF_FAST_MODE
-
+			.WdgTimerBase = WDG_COUNTER_CLOCK_DIV_2
 
 	};

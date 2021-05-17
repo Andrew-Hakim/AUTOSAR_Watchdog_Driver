@@ -8,41 +8,23 @@
 #include "Wdg.h"
 #include "Wdg_Cfg.h"
 #include "SchM_Wdg.h"
+#include "Wdg_Registers.h"
+
+#define WDGTB_RESET 		0b001111111
+#define WDGA_SET			0b10000000
+
+void Wdg_Init( const Wdg_ConfigType* ConfigPtr )
+{
+	uint32  WWDG_CFR_temp = (WWDG_REG->WWDG_CFR);
+	WWDG_CFR_temp = ConfigPtr->WdgWindowValue;
+	WWDG_CFR_temp &= WDGTB_RESET;
+	WWDG_CFR_temp |= ConfigPtr->WdgTimerBase;
+	(WWDG_REG->WWDG_CFR) = WWDG_CFR_temp;
+	(WWDG_REG->WWDG_CR)  = ( ConfigPtr->WdgCounter | WDGA_SET );
+}
 
 
-
-Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode)
+void Wdg_GetVersionInfo( Std_VersionInfoType* versioninfo )
 {
 
-#if     WD_OFF_MODE  == WD_MODE_IS_AVAILABE
-
-	if(WDGIF_OFF_MODE==Mode)
-	{
-		/*code*/
-		Reg->WWDG_CR &= BIT7_CLEAR;	//WDGA=0;	to disable the watch dog = turn it off
-	}
-#endif
-
-#if     WD_SLOW_MODE == WD_MODE_IS_AVAILABE
-	else if(WDGIF_SLOW_MODE==Mode)
-	{
-		/*code*/
-		Reg->WWDG_CR |= BIT7;		//WDGA=1; enable it 1st
-		Reg->WWDG_CFR |= BIT8 | BIT7;	// prescaler for every dec is 8 so dec every 4096 & 2 power (8) = WDGTB // the slowest & longest decrement
-	}
-#endif
-
-#if     WD_FAST_MODE == WD_MODE_IS_AVAILABE
-	else if(WDGIF_FAST_MODE==Mode)
-	{
-		/*code*/
-		Reg->WWDG_CR |= BIT7;				//WDGA=1; enable it 1st
-		Reg->WWDG_CFR &= (BIT8_CLEAR & BIT7_CLEAR);	// prescaler for every dec is 1 so dec every 4096 & 2 power (1) = WDGTB
-	}
-#endif
-	else {
-		/*return error or wrong parameter*/
-		return 1;   // error
-	}
-	return 0;
 }
