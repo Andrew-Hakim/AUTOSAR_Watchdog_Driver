@@ -9,6 +9,7 @@
 #include "Wdg_Cfg.h"
 #include "SchM_Wdg.h"
 #include "Wdg_Registers.h"
+#include "Wdg_Lcfg.h"
 
 #define WDGTB_RESET 		0b001111111
 #define WDGA_SET			0b10000000

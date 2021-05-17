@@ -9,7 +9,9 @@
 
 #include "Wdg.h"
 
-#define NUMBER_OF_INCETANCES     1
+//#define NUMBER_OF_INCETANCES     1
+
+
 
 Wdg_ConfigType User_WdgCongfiguration =
 

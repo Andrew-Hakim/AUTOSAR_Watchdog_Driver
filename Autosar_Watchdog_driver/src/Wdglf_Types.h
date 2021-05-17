@@ -37,8 +37,6 @@ typedef struct
 	uint8 WdgCounter;
 	uint8 WdgWindowValue;
 	uint8 WdgTimerBase;
-	WdgIf_ModeType WdgMode;
-
 }Wdg_ConfigType;
 
 
