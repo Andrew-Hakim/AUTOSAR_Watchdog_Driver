@@ -50,9 +50,10 @@
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
+
 extern  Wdg_ConfigType User_WdgCongfiguration;
-int
-main(int argc, char* argv[])
+
+int main(int argc, char* argv[])
 {
   // At this stage the system clock should have already been configured
   // at high speed.
