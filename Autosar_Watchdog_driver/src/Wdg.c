@@ -40,14 +40,12 @@ void Wdg_GetVersionInfo( Std_VersionInfoType* versioninfo )
 
 
 Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode){
-	/*TODO: Tell Hossam this will give a compilation error if the Off mode is not available */
-#if     WD_OFF_MODE  == WD_MODE_IS_AVAILABE
+
 
 	if(WDGIF_OFF_MODE==Mode){
 		/*code*/
 		WWDG_REG->WWDG_CR &= BIT7_CLEAR;	//WDGA=0;	to disable the watch dog = turn it off
 	}
-#endif
 
 #if     WD_SLOW_MODE == WD_MODE_IS_AVAILABE
 	/*speed of the slow mode should be within 5ms*/
