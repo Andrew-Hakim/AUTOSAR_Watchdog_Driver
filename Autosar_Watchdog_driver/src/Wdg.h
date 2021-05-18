@@ -36,13 +36,17 @@
 Std_ReturnType Wdg_SetMode(WdgIf_ModeType Mode);
 
 /**************************************************************************************************************
- * Public Function: Wdg_SetTriggerCondition
- * Description: This function is used to set the timeout value for the watch dog timer.
+ * Public Function [SWS_Wdg_00155]: Wdg_SetTriggerCondition
+ * Description: This function is used to set the timeout value for the trigger counter
  * Input Parameters:
- * 					 -uint16 timeout: the timeout in milliseconds.
+ * 					 -uint16 timeout : the timeout value in ms
  *
  *
  * Return:           -Not Applicable (void)
+ *
+ * Covers:SWS_Wdg_00136 ,SWS_Wdg_00138 ,SWS_Wdg_00140
+ *
+ * NOTE: This Function doesn't apply this AUTOSAR Requirement --> SWS_Wdg_00139
  *
  * Input/Output Parameters:
  * 					-Not Applicable (void)
@@ -75,7 +79,7 @@ void Wdg_Init( const Wdg_ConfigType* ConfigPtr );
  *
  * Return : None.
  *
- * Covers :
+ * Covers : [SWS_Wdg_00174]
  *
  *
  ***************************/

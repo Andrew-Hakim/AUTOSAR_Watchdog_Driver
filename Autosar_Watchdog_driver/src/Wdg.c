@@ -11,6 +11,14 @@
 #include "Wdg_Registers.h"
 #include "Wdg_Lcfg.h"
 
+/* Version information of the module */
+#define MODEL_ID		3
+#define VENDOR_ID		2
+#define MAJOR_VERSION   2
+#define MINOR_VERSION   1
+#define PATCH_VERSION   2
+
+
 /*next define for select mode func*/
 #define  WDT_CR_REG_RESET			0x0000007F
 #define WD_WDGTB_MASK 				0x00000180
@@ -22,6 +30,7 @@
 
 void Wdg_Init( const Wdg_ConfigType* ConfigPtr )
 {
+
 	uint32  WWDG_CFR_temp = (WWDG_REG->WWDG_CFR);
 	WWDG_CFR_temp = ConfigPtr->WdgWindowValue;
 	WWDG_CFR_temp &= WDGTB_RESET;
@@ -33,7 +42,11 @@ void Wdg_Init( const Wdg_ConfigType* ConfigPtr )
 
 void Wdg_GetVersionInfo( Std_VersionInfoType* versioninfo )
 {
-
+	versioninfo->moduleID = MODEL_ID;
+	versioninfo->sw_major_version = MAJOR_VERSION;
+	versioninfo->sw_minor_version = MINOR_VERSION;
+	versioninfo->sw_patch_version = PATCH_VERSION;
+	versioninfo->vendorID = VENDOR_ID ;
 }
 
 

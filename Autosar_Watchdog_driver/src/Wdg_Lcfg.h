@@ -9,6 +9,6 @@
 #define WDG_LCFG_H_
 
 
-extern Wdg_ConfigType User_WdgCongfiguration;
+//extern Wdg_ConfigType User_WdgCongfiguration;
 
 #endif /* WDG_LCFG_H_ */
