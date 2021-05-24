@@ -15,7 +15,7 @@
 #define     WD_SLOW_MODE      WD_MODE_IS_AVAILABE
 #define     WD_FAST_MODE      WD_MODE_IS_AVAILABE
 
-#define 	WD_PCLK_MHZ		  24 //24 Mhz clock
+#define 	WD_PCLK_MHZ		  42000000 //24 Mhz clock
 
 
 #endif /* WDG_CFG_H_ */

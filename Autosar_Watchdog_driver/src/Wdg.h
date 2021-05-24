@@ -18,12 +18,12 @@
 #define     WDGIF_FAST_MODE     3
 */
 
-
+/*
 #define WDG_COUNTER_CLOCK_DIV_1      (uint8)( 0x00 )
 #define WDG_COUNTER_CLOCK_DIV_2      (uint8)( BIT7 )
 #define WDG_COUNTER_CLOCK_DIV_4      (uint8)( BIT8 )
 #define WDG_COUNTER_CLOCK_DIV_8      (uint8)( BIT7 | BIT8)
-
+*/
 
 /***************************
  * Function Description :  Switches the watch dog into the mode Mode.

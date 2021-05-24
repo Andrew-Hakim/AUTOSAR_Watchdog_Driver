@@ -33,9 +33,7 @@ void Wdg_Init( const Wdg_ConfigType* ConfigPtr )
 
 	uint32  WWDG_CFR_temp = (WWDG_REG->WWDG_CFR);
 	WWDG_CFR_temp = ConfigPtr->WdgWindowValue;
-	WWDG_CFR_temp &= WDGTB_RESET;
-	WWDG_CFR_temp |= ConfigPtr->WdgTimerBase;
-	(WWDG_REG->WWDG_CFR) = WWDG_CFR_temp;
+	(WWDG_REG->WWDG_CFR) |= WWDG_CFR_temp;
 	(WWDG_REG->WWDG_CR)  = ( ConfigPtr->WdgCounter | WDGA_SET );
 }
 
