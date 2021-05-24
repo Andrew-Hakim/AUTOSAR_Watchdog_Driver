@@ -33,7 +33,7 @@
 #include "../../lib/src/Std_Types.h"
 #include "../../lib/src/Bit_Mask.h"
 #include "../../lib/src/errorCode.h"
-#include "RCC.h"
+#include "Rcc.h"
 #include "Wdg.h"
 // ----------------------------------------------------------------------------
 //
@@ -60,36 +60,28 @@ extern  Wdg_ConfigType User_WdgCongfiguration;
 int main(int argc, char* argv[])
 {
 	uint32_t count = 0;
-	uint32_t Loc_u32testvar=0;
-	RCC_APB1_status(RCC_APB1_WWDG,RCC_PERI_STATE_ENABLE);
-	RCC_setHPRE1(RCC_PPRE1_4);
+	uint32_t Loc_u32testvar=1;
 
+	uint32_t sysclk =0;
+	RCC_GetCurrentSysClkFreq(&sysclk);
+	RCC_ControlAPB1PeriClk(RCC_APB1_PREPH_WWDG, RCC_PREPH_ENABLE);
+	RCC_SetBusPrescaler(RCC_APB1_PRE_DIV_4);
 
-	Wdg_SetMode(WDGIF_SLOW_MODE);
-//	Wdg_SetMode(WDGIF_FAST_MODE);
+	Wdg_SetMode(WDGIF_FAST_MODE);
 	Wdg_Init(&User_WdgCongfiguration);
-	Wdg_SetTriggerCondition(10);
+	Wdg_SetTriggerCondition(7);
 
-
-
-	trace_printf("The start of execution \n ");
-	if(Loc_u32testvar == 0)
+	/*This code will never reset because the watchdog is always updated*/
+	while (1)
 	{
-		/*infinite loop to reset the  watchdog timer  */
-		while(1){
-			count ++ ;
-						trace_printf("counter : %i \n", count);
+		count ++ ;
+		for(uint32 i = 0; i< 20000;i++){
+			asm("NOP");
 		}
+		trace_printf("counter : %i \n", count);
+		Wdg_SetTriggerCondition(7);
 	}
-	else {
-		/*This code will never reset because the watchdog is always updated*/
-		while (1)
-		{
-			count ++ ;
-			trace_printf("counter : %i \n", count);
-			Wdg_SetTriggerCondition(50);
-		}
-	}
+
 }
 
 #pragma GCC diagnostic pop

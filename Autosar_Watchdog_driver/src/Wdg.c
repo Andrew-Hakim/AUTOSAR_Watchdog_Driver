@@ -154,8 +154,14 @@ void Wdg_SetTriggerCondition(uint16 timeout)
 		/*if not calculate the T[5:0] to be set in the CR register from the equation */
 		timebase = (WWDG_REG->WWDG_CFR & WD_WDGTB_MASK) >> 7;
 		Loc_u16CountDownVal= (timeout/((1000.0/WD_PCLK_MHZ) * 4096 * (1 << timebase))) - 1;
+		if (Loc_u16CountDownVal < 0x40)
+		{
+			//Det_Error(WDG_E_PARAM_TIMEOUT);
+			return ;
+		}
+
 		Loc_u32WDCR &= WD_WDGT_CLEAR_MASK ;
-		Loc_u32WDCR |= Loc_u16CountDownVal & 0x003F;
+		Loc_u32WDCR |= (Loc_u16CountDownVal & 0x003F);
 	}
 		WWDG_REG->WWDG_CR = Loc_u32WDCR;
 

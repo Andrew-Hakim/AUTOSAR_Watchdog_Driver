@@ -16,7 +16,7 @@
 Wdg_ConfigType User_WdgCongfiguration =
 
  {
-			.WdgCounter = 125,
+			.WdgCounter = 70,
 			.WdgWindowValue =120
 
 	};
